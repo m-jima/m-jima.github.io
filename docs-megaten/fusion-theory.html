@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Max Mill's Megami Tensei Fusion Tools</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="SMT_Dx2_Macca.ico">
+    </head>
+    <body>
+        <div>
+            <h1 id="megamitenseifusiontoolsfusiontheory">Megami Tensei Fusion Tool - Fusion Theory</h1>
+            <h2 id="navigation">Navigation</h2>
+            <ul>
+                <li><a href="https://m-jima.github.io/megaten-fusion-tool/home">All Fusion Tools</a></li>
+                <li><a href="https://m-jima.github.io/docs-megaten/how-to-use">How to Use</a></li>
+<!--                <li><a href="https://github.com/m-jima/megaten-fusion">Report Issue</a></li>-->
+            </ul>
+            <h2 id="basicfusionrules">Basic Fusion Rules</h2>
+            <h3 id="normalfusion">Normal Fusion</h3>
+            <h4 id="formula">Formula</h4>
+            <ol>
+                <li>Ingredient A x Ingredient B = ?<ul>
+                    <li>Consult the game's corresponding demon list to obtain each ingredient's race and base level.</li></ul></li>
+                <li>Determine Race 'R'<ul>
+                    <li>Consult the game's normal fusion chart.</li>
+                    <li>Find the row that starts or ends with Race 'A'</li>
+                    <li>Find the column that starts or ends with Race 'B'</li>
+                    <li>Race 'R' = Intersection of Race 'A' and Race 'B'</li>
+                    <li>If Race 'R' ISNA, the fusion is invalid.</li>
+                    <li>(Persona only) Insersection must lie in upper-right half of race chart. If it does not, flip Race A and Race B.</li></ul></li>
+                <li>Determine Result R<ul>
+                    <li>Consult the game's demon list</li>
+                    <li>Level R = (Base Level A + Base Level B + 1) >> Game-specific modifier</li>
+                    <li>Result R = Next-highest non-unique result with Race R and base level &gt;= Level R</li>
+                    <li>If Level R &gt; All non-unique results with Race R, the fusion is invalid.</li></ul></li>
+                <li>Ingredient A x Ingredient B = Result R</li>
+            </ol>
+            <h4 id="example1">Example 1</h4>
+            <ol>
+                <li>Shin Megami Tensei IV: Current Level 53 Osiris x Current Level 26 Principality = ?<ul>
+                    <li><a href="https://m-jima.github.io/megaten-fusion-tool/smtiv/demons">List of Demons - Shin Megami Tensei IV</a></li>
+                    <li>Osiris: Race A = Deity, Base Level A = 53</li>
+                    <li>Principality: Race B = Divine, Base Level B = 26</li></ul></li>
+                    <li>Determine Race R<ul>
+                        <li><a href="https://m-jima.github.io/megaten-fusion-tool/smtiv/chart">Fusion Chart - Shin Megami Tensei IV</a></li>
+                        <li>Deity (row) x Divine (column) = Herald</li></ul></li>
+                    <li>Determine Result R<ul>
+                        <li>SMT IV Normal Modifier = 1</li>
+                        <li>Level R = (53 + 26 + 1) >> 1 = 40</li>
+                        <li>Next-highest Herald Demon with base level &gt;= 40 is Israfel (45), not Victor (40)</li></ul></li>
+                    <li>Shin Megami Tensei IV: Current Level 53 Osiris x Current Level 26 Principality = Base Level 45 Israfel</li>
+            </ol>
+            <h3 id="triplefusion">Triple Fusion</h3>
+            <h4 id="formula-1">Formula</h4>
+            <ol>
+                <li>Ingredient A x B x C = ?<ul>
+                    <li>Consult game's demon list for race and base level</li>
+                    <li>Ingredient C = Demon with MAX current level</li>
+                    <li>If multiple ingredients are tied for MAX current, Ingredient C = Ingredient with highest race priority</li>
+                    <li>By default, demons are sorted from higher to lower race priorities (consult demon list for game)</li></ul></li>
+                <li>Determine Race AB<ul>
+                    <li>Consult normal fusion chart</li>
+                    <li>Find the row which starts/ends with Race A</li>
+                    <li>Find the column which starts/ends with Race B</li>
+                    <li>Race AB = Intersection of Race A x Race B</li>
+                    <li>If Race R = None, the fusion is invalid.</li></ul></li>
+                    <li>Determine Race R<ul>
+                        <li>Consult triple fusion chart</li>
+                        <li>Find row which starts/ends with Race AB</li>
+                        <li>Find column which starts/ends with Race C</li>
+                        <li>Race R = Intersection of Race AB x Race C</li>
+                        <li>If Race R = None, the fusion is invalid.</li></ul></li>
+                    <li>Determine Result R<ul>
+                        <li>Consult demon list</li>
+                        <li>Level R = Math.floor((Level A + Level B + Level C) / 3) + Triple Modifier</li>
+                        <li>Result R = Next-highest non-unique result with Race R and base level &gt;= Level R</li>
+                        <li>If Level R &gt; All non-unique results with Race R, the fusion is invalid</li></ul></li>
+                <li>Ingredient A x Ingredient B x Ingredient C = Result R</li>
+            </ol>
+        </div>
+    </body>
+</html>
