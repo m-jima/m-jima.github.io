@@ -1,0 +1,27 @@
+<html>
+<head>
+  <title>Game of Gale / Shannon-Switching Game</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="side-panel">
+      <h3>Game of Gale</h3>
+      <p> The Game of Gale, otherwise known as the <a href="https://en.wikipedia.org/wiki/Shannon_switching_game"> Shannon switching game</a>, is a two-player connection game invented by American mathematician Claude Shannon. The most commonly played version of the game is played on a rectangular grid (as opposed to an arbitrary graph), invented by American mathematician David Gale in the 1950's.</p>
+      <h3>How to play:</h3>
+      <ul>
+        <li>Blue goes first.</li>
+        <li>Players take turns connecting two adjacent dots, provided there is no line separating them.</li>
+        <li>A player wins if they can construct a continuous path from the top/bottom or left/right of the board.</li>
+      </ul>
+    </div>
+
+    <div id="app-container">
+      <div id="win-message"> <span id = "black-message"> Blue wins!</span></div>
+      <canvas id="canvas" width="450px" height="450px"></canvas>
+    </div>
+    <script src="scripts/dsu.js"></script>
+    <script src="scripts/circle.js"></script>
+    <script src="scripts/app.js"></script>
+</body>
+</html>
